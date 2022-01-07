@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply w-9/12 m-auto;
+}
+
+
+.header-top{
+  @apply bg-blue-900 text-center;
+}
+
+.header-main{
+  @apply bg-amber-500 flex justify-between
+}
+
+.menu li a:hover{
+  @apply  underline;
+}
+
+
+.menu li{
+  @apply inline-block px-4 py-2 text-white text-sm;
+}
+
+.form{
+  @apply  my-auto px-4;
+}
+
+.btn_submit{
+  @apply  bg-blue-900 text-center text-white px-2 ;
+}
+
+.title{
+  @apply my-4 font-bold text-2xl;
+}
+
+.row{
+  @apply  grid grid-cols-3 gap-8;
+}
+
+.col{
+  @apply  py-3 px-5 border;
+}
+
+.title_2{
+  @apply my-2 text-lg text-orange-500 font-bold;
+}
+
+
+.footer{
+  @apply  bg-blue-900 text-center text-white;
+}
