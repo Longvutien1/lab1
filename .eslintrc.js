@@ -16,5 +16,6 @@ module.exports = {
         quotes: ["error", "double", { allowTemplateLiterals: true }],
         indent: ["error", 4],
         "eol-last": ["error", "never"],
+        "linebreak-style": 0,
     },
 };
