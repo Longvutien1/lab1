@@ -9,6 +9,13 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import detailNewPage from "./pages/detailNew";
 
+import SignIn from "./pages/sign_in";
+import SignUp from "./pages/sign_up";
+
+import adminNewAdd from "./admin/news/add";
+import adminNewEdit from "./admin/news/edit";
+import adminDashBoard from "./admin/dashboard";
+
 const router = new Navigo("/", { linksSelector: "a" });
 
 const print = (content) => {
@@ -41,31 +48,22 @@ router.on({
         const { id } = data;
         print(detailNewPage.render(id));
     },
+    "/admin": () => {
+        print(adminDashBoard.render());
+    },
+    "/admin/news/add": () => {
+        print(adminNewAdd.render());
+    },
+    "/admin/news/edit/:id": ({ data }) => {
+        const { id } = data;
+        print(adminNewEdit.render(id));
+    },
+    "/sign_in": () => {
+        print(SignIn.render());
+    },
+    "/sign_up": () => {
+        print(SignUp.render());
+    },
 });
 
 router.resolve();
-
-// const showProduct = () => {
-//     const productsElement = document.querySelector("#products");
-//     const productsElement2 = document.querySelector("#products2");
-//     if (productsElement) {
-//         // Tạo ra 1 vòng lặp mới và gán vào biến result
-
-//         const result = productList
-//             .map((item) => `
-//             <div class="col">
-//             <a href=""><img class="mx-auto" src="${item.img}" alt=""></a>
-//             <a href=""><h3 class="title_2">${item.title}</h3></a>
-//             <p>${item.noi_dung}</p>
-//           </div>
-
-//                 `)
-//         // Chuyển đổi sang chuỗi và nối các phần tử lại với nhau
-//             .join("");
-//         // Hiển thị ra ngoài màn hình
-//         console.log("san pham: ", productsElement);
-//         productsElement.innerHTML = result;
-//         productsElement2.innerHTML = result;
-//     }
-// };
-// showProduct();
