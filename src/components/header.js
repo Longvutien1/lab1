@@ -25,7 +25,7 @@ const Header = {
           </div>
         </div>
         <div>
-          <ul class=" float-right mb-8">
+          <ul class=" float-right mb-8 p-0 m-0">
             <li class="inline-block"><a href="/sign_in">Đăng nhập / </a></li>
             <li class="inline-block"><a href="/sign_up">Đăng kí</a></li>
           </ul>

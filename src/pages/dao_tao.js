@@ -1,6 +1,14 @@
+import Footer from "../components/footer";
+import Header from "../components/header";
+
 const DaoTao = {
     render() {
-        return `<p>Đào tạo</p>`;
+        return /* html */`
+        ${Header.render()}
+        <p>Đào tạo</p>
+        ${Footer.render()}
+        
+        `;
     },
 };
 

@@ -5,8 +5,6 @@ import tuyeSinh from "./pages/tuyen_sinh";
 import DaoTao from "./pages/dao_tao";
 import SinhVien from "./pages/sinh_vien";
 import TuyenDung from "./pages/tuyen_dung";
-import Header from "./components/header";
-import Footer from "./components/footer";
 import detailNewPage from "./pages/detailNew";
 
 import SignIn from "./pages/sign_in";
@@ -15,13 +13,12 @@ import SignUp from "./pages/sign_up";
 import adminNewAdd from "./admin/news/add";
 import adminNewEdit from "./admin/news/edit";
 import adminDashBoard from "./admin/dashboard";
+import AdminNewsPage from "./admin/news";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
 const print = (content) => {
-    document.getElementById("header").innerHTML = Header.render();
     document.getElementById("app").innerHTML = content;
-    document.getElementById("footer").innerHTML = Footer.render();
 };
 
 router.on({
@@ -50,6 +47,9 @@ router.on({
     },
     "/admin": () => {
         print(adminDashBoard.render());
+    },
+    "/admin/news": () => {
+        print(AdminNewsPage.render());
     },
     "/admin/news/add": () => {
         print(adminNewAdd.render());

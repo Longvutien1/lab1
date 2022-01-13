@@ -1,6 +1,14 @@
+import Footer from "../components/footer";
+import Header from "../components/header";
+
 const TuyenDung = {
     render() {
-        return `<p>TuyenDung</p>`;
+        return /* html */`
+        ${Header.render()}
+        <p>Tuyển dụng</p>
+        ${Footer.render()}
+        
+        `;
     },
 };
 
