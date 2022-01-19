@@ -17,8 +17,8 @@ import AdminNewsPage from "./admin/news";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
-const print = (content) => {
-    document.getElementById("app").innerHTML = content;
+const print = async (content) => {
+    document.getElementById("app").innerHTML = await content;
 };
 
 router.on({
