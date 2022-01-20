@@ -7,6 +7,38 @@
         {
             "src": "/news",
             "dest": "/"
+        },
+        {
+            "src": "/tuyen_sinh",
+            "dest": "/"
+        },
+        {
+            "src": "/dao_tao",
+            "dest": "/"
+        },
+        {
+            "src": "/sinh_vien",
+            "dest": "/"
+        },
+        {
+            "src": "/tuyen_dung",
+            "dest": "/"
+        },
+        {
+            "src": "/admin",
+            "dest": "/"
+        },
+        {
+            "src": "/admin/news",
+            "dest": "/"
+        },
+        {
+            "src": "/admin/news/add",
+            "dest": "/"
+        },
+        {
+            "src": "/admin/news/edit/(.*)",
+            "dest": "/"
         }
     ]
 }
