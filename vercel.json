@@ -34,7 +34,7 @@
         },
         {
             "src": "/admin",
-            "dest": "/admin"
+            "dest": "/"
         },
         {
             "src": "/admin/news",
