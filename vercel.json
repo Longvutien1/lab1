@@ -25,6 +25,14 @@
             "dest": "/"
         },
         {
+            "src": "/sign_in",
+            "dest": "/"
+        },
+        {
+            "src": "/sign_up",
+            "dest": "/"
+        },
+        {
             "src": "/admin",
             "dest": "/"
         },
@@ -38,6 +46,10 @@
         },
         {
             "src": "/admin/news/edit/(.*)",
+            "dest": "/"
+        },
+        {
+            "src": "/admin/products",
             "dest": "/"
         }
     ]
