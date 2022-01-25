@@ -1,4 +1,4 @@
-import NavAdmin from "../components/NavAdmin";
+import NavAdmin from "../../components/NavAdmin";
 
 const DashBoardPage = {
     render() {

@@ -1,9 +1,12 @@
-import NavAdmin from "../../components/NavAdmin";
-import productList from "../../data";
+import { getById, update } from "../../../api/posts";
+import NavAdmin from "../../../components/NavAdmin";
 
 const adminNewEdit = {
-    render(id) {
-        const found = productList.find((element) => element.id === id);
+    async render(id) {
+        // console.log(id);
+        const { data } = await getById(id);
+
+        // console.log(data);
         return /* html */ `
         ${NavAdmin.render()}
         <header class="bg-white shadow">
@@ -34,7 +37,7 @@ const adminNewEdit = {
                 </div>
               </div>
               <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="#" method="POST">
+                <form id="form-edit">
                   <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                       <div class="grid grid-cols-3 gap-6">
@@ -42,7 +45,7 @@ const adminNewEdit = {
                       <label for="about" class="block text-sm font-medium text-gray-700">
                           Title
                       </label>
-                      <input type="text" name="company-website" id="company-website" class="mt-1 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" value="${found.title}" placeholder="Title">
+                      <input type="text" name="company-website" id="title-port" class="mt-1 border focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" value="${data.title}" placeholder="Title">
 
                   </div>
                       </div>
@@ -52,7 +55,7 @@ const adminNewEdit = {
                           Content
                         </label>
                         <div class="mt-1">
-                          <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="you@example.com">${found.desc}</textarea>
+                          <textarea id="desc-port" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="you@example.com">${data.desc}</textarea>
                         </div>
                       
                       </div>
@@ -63,7 +66,7 @@ const adminNewEdit = {
                         </label>
                         <div class="mt-1 flex items-center">
                           <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                            <img src="${found.img}" alt="">
+                            <img src="${data.img}" alt="">
                           </span>
                           <button type="button" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Change
@@ -83,7 +86,7 @@ const adminNewEdit = {
                             <div class="flex text-sm text-gray-600">
                               <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                 <span>Upload a file</span>
-                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                <input id="img-port" name="file-upload" type="file" class="sr-only" >
                               </label>
                               <p class="pl-1">or drag and drop</p>
                             </div>
@@ -107,6 +110,21 @@ const adminNewEdit = {
 
         `;
     },
+
+    afterRender(id) {
+        console.log(id);
+        const formEdit = document.querySelector("#form-edit");
+        formEdit.addEventListener("submit", (e) => {
+            e.preventDefault();
+            update({
+                id,
+                title: document.querySelector("#title-port").value,
+                desc: document.querySelector("#desc-port").value,
+
+            });
+        });
+    },
+
 };
 
 export default adminNewEdit;

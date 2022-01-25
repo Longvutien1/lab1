@@ -1,8 +1,9 @@
-import NavAdmin from "../../components/NavAdmin";
+import { remove } from "../../../api/posts";
+import NavAdmin from "../../../components/NavAdmin";
 import adminList from "./list";
 
 const AdminNewsPage = {
-    render() {
+    async render() {
         return /* html */`
         <div class="min-h-full">
             ${NavAdmin.render()}
@@ -26,11 +27,30 @@ const AdminNewsPage = {
             </div>
         </header>
             <main>
-                ${adminList.render()}
+                ${await adminList.render()}
             </main>
         </div>
     
                     `;
+    },
+
+    afterRender() {
+        // console.log(2);
+        const buttons = document.querySelectorAll(".btn");
+        buttons.forEach((btn) => {
+            const { id } = btn.dataset;
+            // console.log(id);
+            btn.addEventListener("click", () => {
+                // console.log(id);
+                const confirm = window.confirm("Bạn có muốn xóa bài viết này không ?");
+                if (confirm) {
+                    // gọi hàm delete trong folder API và bắn id vào hàm
+                    remove(id).then(() => {
+                        alert("Bạn đã xóa thành công");
+                    });
+                }
+            });
+        });
     },
 };
 export default AdminNewsPage;

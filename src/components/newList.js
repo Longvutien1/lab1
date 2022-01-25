@@ -1,11 +1,11 @@
-const NewList = {
-    render() {
-        const API = "https://5e79b4b817314d00161333da.mockapi.io/posts";
+import { getAllPost } from "../api/posts";
 
-        return fetch(API)
-            .then((response) => response.json())
-            .then((data) => /* html */ `
-       
+const NewList = {
+
+    async render() {
+        const { data } = await getAllPost();
+        console.log(data);
+        return /* html */ `
                 ${data.map(
         (item) => `
                 
@@ -17,8 +17,7 @@ const NewList = {
                 
                         `,
     )
-        .join("")}
-        `);
+        .join("")}`;
     },
 };
 
